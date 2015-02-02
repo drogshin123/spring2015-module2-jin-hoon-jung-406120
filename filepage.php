@@ -1,5 +1,8 @@
+<!DOCTYPE html>
 <html>
-
+<head><title>File Share</title>
+	<meta charset="utf-8">
+</head>
 <body>
 	<?php
 	session_start();
@@ -14,14 +17,16 @@
 	echo "<ul>\n";
 	for($i= 0; $i<count($homefolder); $i++){
 		printf($homefolder[$i]);
-		printf("<form action='view.php' method='POST'><input type='hidden' name='filename' value='%s'/><input type='submit' name='view' value='view'/></form>",$homefolder[$i]);
+		printf("<li><form action='view.php' method='POST'><input type='hidden' name='filename' value='%s'/><input type='submit' name='view' value='view'/></form></li>", $homefolder[$i]);
 
-		printf("<form action='delete.php' method='POST'><input type='hidden' name='filename' value='%s'/><input type='submit' name='delete' value='Delete'/></form><br>",$homefolder[$i]);
+		printf("<li><form action='delete.php' method='POST'><input type='hidden' name='filename' value='%s'/><input type='submit' name='delete' value='Delete'/></form></li><br>", $homefolder[$i]);
+		printf("<li><form action='edit.php' method='POST'><input type='hidden' name='filename' value='%s'/><input type='text' name='edit'/><input type='submit' name='editn' value='Edit File Name'/></form></li><br>", $homefolder[$i]);
 	}
 	for($j= 0; $j<count($sharefolder); $j++){
+		echo "Shared Files<br>";
 		printf($sharefolder[$j]);
-		printf("<form action='shareview.php' method='POST'><input type='hidden' name='sharefilename' value='%s'/><input type='submit' name='view' value='view'/></form>",$sharefolder[$j]);
-		printf("<form action='sharedelete.php' method='POST'><input type='hidden' name='sharefilename' value='%s'/><input type='submit' name='delete' value='Delete'/></form><br>",$sharefolder[$j]);
+		printf("<li><form action='shareview.php' method='POST'><input type='hidden' name='sharefilename' value='%s'/><input type='submit' name='view' value='view'/></form></li>", $sharefolder[$j]);
+		printf("<li><form action='sharedelete.php' method='POST'><input type='hidden' name='sharefilename' value='%s'/><input type='submit' name='delete' value='Delete'/></form></li><br>", $sharefolder[$j]);
 	}
 	echo "</ul>\n";
 	printf("<form enctype='multipart/form-data' action='upload.php' method='POST'><input type='hidden' name='MAX_FILE_SIZE' value='20000000' /><label for='uploadfile_input'>Choose a file to upload:</label> <input name='uploadedfile' type='file' id='uploadfile_input' /><input type='submit' value='Upload File' /></form>");
@@ -31,8 +36,7 @@
 		Choose a photo to upload:</label> <input name='uploadedfile' type='file' id='uploadfile_input' />
 		<input type='submit' value='Upload Photo' /></form>");
 	printf("<form action='logout.php' method='GET'><input type='submit' name='logout' value='Logout'/></form>");
-		?>
-
-	</body>
-	</html>
+	?>
+</body>
+</html>
 

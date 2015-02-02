@@ -1,0 +1,33 @@
+body {
+font-family: Georgia;
+font-size: 13pt;
+line-height: 3;
+}
+
+h1 {
+	font-family: Georgia;
+	font-size: 15pt;
+	font-weight: bold;
+}
+
+input[type="submit"] {
+background-color: #7094FF;
+font-family: Georgia;
+font-size: 15pt;
+font-style: italic;
+color: white;
+border: 0px;
+width: 300px;
+height: 30px;
+
+}
+
+input[type="text"] {
+	font-family: Georgia;
+	font-size: 13pt;
+	border: 0px;
+	height: 15pt;
+	color: black;
+	border: 1px solid black;
+
+}
